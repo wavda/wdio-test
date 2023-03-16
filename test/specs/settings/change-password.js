@@ -6,10 +6,7 @@ const ChangePasswordPage = require('../../pageobjects/settings/change-password.p
 describe('Two Factor Authentication', () => {
     before(async() => {
         await LoginPage.open();
-        await LoginPage.login('WAZ123', 'mypassword');
-    })
-
-    beforeEach(async() => {
+        await LoginPage.login(process.env.USER_ID, process.env.PASSWORD);
         await Navbar.openSettingsPage();
         await SettingsPage.openChangePasswordPage();
     })
