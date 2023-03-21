@@ -143,8 +143,7 @@ exports.config = {
         outputDir: './allure-results',
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: false,
-      }]],
-
+    }]],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
