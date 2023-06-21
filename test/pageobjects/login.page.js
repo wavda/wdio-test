@@ -1,27 +1,28 @@
 const Page = require('./page');
 
 class LoginPage extends Page {
-    get inputuserId () {
+    get inputuserId() {
         return $('input[name="user[userId]"]');
     }
 
-    get inputPassword () {
+    get inputPassword() {
         return $('input[name="user[secret]"]');
     }
 
-    get btnContinue () {
+    get btnContinue() {
         return $('#tag-lg001');
     }
 
-    async login (userId, password) {
+    async login(userId, password) {
+        await this.waitForPageLoad();
         await this.inputuserId.setValue(userId);
         await this.btnContinue.click();
         await this.inputPassword.setValue(password);
         await this.btnContinue.click();
     }
 
-    open () {
-        return super.open('login');
+    open() {
+        return super.open(process.env.OAUTH_URL + '/login');
     }
 }
 

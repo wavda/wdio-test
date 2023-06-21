@@ -1,11 +1,12 @@
 const Page = require('../page');
 
 class Settings extends Page {
-    get subMenuSecurity () {
+    get subMenuSecurity() {
         return $('//*[@class="submenu-item__body" and contains(text(),"Security")]');
     }
 
-    async openChangePasswordPage () {
+    async openChangePasswordPage() {
+        await this.waitForPageLoad();
         await this.subMenuSecurity.click();
     }
 }

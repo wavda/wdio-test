@@ -1,15 +1,17 @@
 const Page = require('./page');
 
 class DashboardPage extends Page {
-    get navbarUserProfile () {
+    get navbarUserProfile() {
         return $('#v-step-3');
     }
 
-    get navbarUserProfileSettings () {
+    get navbarUserProfileSettings() {
         return $('a[href="/settings/personal-information"]');
     }
 
-    async openSettingsPage () {
+    async openSettingsPage() {
+        await this.waitForUrlContains('dashboard');
+        await this.waitForPageLoad();
         await this.navbarUserProfile.isClickable();
         await this.navbarUserProfile.click();
         await this.navbarUserProfileSettings.click();
